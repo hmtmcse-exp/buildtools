@@ -1,0 +1,5 @@
+task bismillah {
+    doLast {
+        println 'Bismillahir Rahmanir rahim'
+    }
+}
