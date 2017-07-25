@@ -5,13 +5,13 @@ task bismillah {
 }
 
 task copyDocs(type: Copy) {
-    from 'copy_frome'
-    into 'gradle_to'
+    from 'copy_from'
+    into 'Tmp'
 }
 
 
 task mydir {
     doLast {
-        mkdir('build/models')
+        mkdir('Tmp/models')
     }
 }
