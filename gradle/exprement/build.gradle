@@ -3,3 +3,15 @@ task bismillah {
         println 'Bismillahir Rahmanir rahim'
     }
 }
+
+task copyDocs(type: Copy) {
+    from 'copy_frome'
+    into 'gradle_to'
+}
+
+
+task mydir {
+    doLast {
+        mkdir('build/models')
+    }
+}
