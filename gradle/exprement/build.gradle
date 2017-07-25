@@ -6,7 +6,7 @@ task bismillah {
 
 task copyDocs(type: Copy) {
     from 'copy_from'
-    into 'Tmp'
+    into 'copy_to'
 }
 
 
@@ -15,3 +15,34 @@ task mydir {
         mkdir('Tmp/models')
     }
 }
+
+task createModule {
+    doLast {
+        mkdir('Tmp/models')
+    }
+}
+
+task copyTask(dependsOn: createModule, type: Copy) {
+    from 'Tmp/copy_from'
+    into 'Tmp/build'
+}
+
+
+task deleteIt(type: Delete) {
+    delete 'Tmp/models', 'Tmp/build'
+    followSymlinks = true
+}
+
+task myZip(type: Zip) {
+    from 'Tmp/build/'
+    archiveName 'Reports.zip'
+    destinationDir(file('Tmp'))
+}
+
+task myZipIn(type: Zip) {
+    from 'Tmp/build/'
+    include '*.html'
+    archiveName 'Include.zip'
+    destinationDir(file('Tmp'))
+}
+
