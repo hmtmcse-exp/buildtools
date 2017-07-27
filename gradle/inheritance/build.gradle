@@ -1,0 +1,14 @@
+// Define an extra property
+
+apply from: 'other/other.gradle'
+
+ext.srcDirName = 'child'
+def getSrcDir(project) {
+    return project.file(srcDirName)
+}
+
+
+task build(type: GradleBuild) {
+    buildFile = 'other/other.gradle'
+    tasks = ['hello']
+}
