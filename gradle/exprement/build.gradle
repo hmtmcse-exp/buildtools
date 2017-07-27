@@ -46,3 +46,20 @@ task myZipIn(type: Zip) {
     destinationDir(file('Tmp'))
 }
 
+task printName(){
+    println "Hi $name"
+}
+
+
+task runOther(){
+    println "Printing Bismillah"
+    tasks.bismillah.execute()
+   // name = "Touhid"
+    tasks.printName.execute()
+}
+
+
+// Accessing property of the Project object
+
+println name
+println project.name
