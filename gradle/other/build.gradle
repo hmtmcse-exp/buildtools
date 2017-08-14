@@ -1,0 +1,26 @@
+
+apply from : 'config.gradle'
+
+
+task printCon(){
+    doLast{
+        println "$appVersion"
+    }
+}
+
+task paramsCheck(){
+    doLast{
+        println "$word"
+    }
+}
+
+
+task readFile(){
+    doLast{
+        File file = file('sample.txt')
+        file.readLines().each{
+            println it
+        }
+
+    }
+}
