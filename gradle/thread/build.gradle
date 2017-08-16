@@ -1,0 +1,25 @@
+task threadTest(){
+    for (def i=0; i < 10; i++){
+        Thread.sleep(3000)
+        println "Thread ${i}"
+    }
+}
+
+
+
+task threads () {
+
+
+    for (def i=0; i<10; i++) {
+        def j = i+1
+        Thread.start {
+            Thread.sleep(j*1000)
+            println "Thread ${j}"
+        }
+        println "Outside Thread ${i}"
+    }
+    Thread.sleep(180000)
+
+
+
+}
